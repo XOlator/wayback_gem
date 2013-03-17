@@ -1,0 +1,9 @@
+<http://api.wayback.archive.org/list/timebundle/http://gleu.ch>; rel="timebundle",
+<http://gleu.ch>; rel="original",
+<http://api.wayback.archive.org/list/timemap/link/http://gleu.ch>; rel="timemap"; type="application/link-format",
+<http://api.wayback.archive.org/list/timegate/http://gleu.ch>; rel="timegate",
+<http://api.wayback.archive.org/memento/20110417182251/http://gleu.ch/>; rel="first memento"; datetime="Sun, 17 Apr 2011 18:22:51 GMT",
+<http://api.wayback.archive.org/memento/20120117073306/http://gleu.ch/>; rel="memento"; datetime="Tue, 17 Jan 2012 07:33:06 GMT",
+<http://api.wayback.archive.org/memento/20130113125339/http://gleu.ch/>; rel="memento"; datetime="Sun, 13 Jan 2013 12:53:39 GMT",
+<http://api.wayback.archive.org/memento/20130120084303/http://gleu.ch/>; rel="memento"; datetime="Sun, 20 Jan 2013 08:43:03 GMT",
+<http://api.wayback.archive.org/memento/20130129170322/http://gleu.ch/>; rel="last memento"; datetime="Tue, 29 Jan 2013 17:03:22 GMT"
