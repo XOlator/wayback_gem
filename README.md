@@ -1,7 +1,13 @@
 # Wayback Gem
 
-![Build Status](https://secure.travis-ci.org/XOlator/wayback_gem.png?branch=master)
-![Coverage Status](https://coveralls.io/repos/XOlator/wayback_gem/badge.png?branch=master)
+[![Gem Version](https://badge.fury.io/rb/wayback.png)][gem]
+[![Build Status](https://secure.travis-ci.org/XOlator/wayback_gem.png?branch=master)][travis]
+[![Coverage Status](https://coveralls.io/repos/XOlator/wayback_gem/badge.png?branch=master)][coveralls]
+
+[gem]: https://rubygems.org/gems/wayback
+[travis]: http://travis-ci.org/XOlator/wayback_gem
+[coveralls]: https://coveralls.io/r/XOlator/wayback_gem
+
 
 A Ruby interface to Archive.org's Wayback Machine Memento API.
 
@@ -18,7 +24,9 @@ Wayback.page('http://www.xolator.com', :first)
 
 
 ## Documentation
-You can browse the Rdoc [here](http://rdoc.info/github/XOlator/wayback_gem/master/frames).
+You can browse the Rdoc [here][documentation].
+
+[documentation]: http://rdoc.info/github/XOlator/wayback_gem/master/frames
 
 
 ## Configuration
@@ -73,12 +81,17 @@ Wayback.page('http://www.xolator.com', :last)
 
 
 ## Additional Notes
-Based heavily on the [Twitter gem](https://www.github.com/sferik/twitter). (Xie xie!)
+Based heavily on the [Twitter gem][twitter_gem]. (Xièxie!)
 
-More information on Archive's Wayback Machine memento API can be found [here](http://mementoweb.org/depot/native/ia/).
+More information on Archive's Wayback Machine memento API can be found [here][wayback_api].
 
+[twitter_gem]: https://www.github.com/sferik/twitter
+[wayback_api]: http://mementoweb.org/depot/native/ia/
 
 
 ## Copyright
-Copyright (c) 2013 XOlator.
-See [LICENSE][] for details.
+Copyright (c) 2013 [XOlator][xolator].
+See [LICENSE][license] for details.
+
+[xolator]: http://www.xolator.com
+[license]: LICENSE.md
