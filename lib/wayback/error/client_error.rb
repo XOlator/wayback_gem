@@ -16,17 +16,10 @@ module Wayback
     private
 
       def self.parse_error(body)
-        if body.nil?
+        if body.nil? || body.is_a?(String)
           ''
         elsif body[:error]
           body[:error]
-        elsif body[:errors]
-          first = Array(body[:errors]).first
-          if first.is_a?(Hash)
-            first[:message].chomp
-          else
-            first.chomp
-          end
         end
       end
 

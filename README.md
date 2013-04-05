@@ -2,7 +2,7 @@
 
 Currently at 93.34% coverage.
 
-[gem]: https://rubygems.org/gems/wayback
+[gem](https://rubygems.org/gems/wayback)
 
 A Ruby interface to Archive.org's Wayback Machine Memento API.
 
@@ -14,10 +14,7 @@ So you want to get up and tweeting as fast as possible?
 
 
 ## Documentation
-COMING SOON! -- [http://rdoc.info/gems/wayback][documentation]
-
-[documentation]: http://rdoc.info/gems/wayback
-
+COMING SOON! -- [documentation](http://rdoc.info/gems/wayback)
 
 
 ## Configuration
@@ -42,7 +39,8 @@ Wayback.page('http://www.xolator.com', :last)
 
 ## Additional Notes
 Based heavily on the [Twitter gem](https://www.github.com/sferik/twitter). (Thanks dudes!)
-More information on Archive's Wayback Machine memento API can be found at ____.
+
+More information on Archive's Wayback Machine memento API can be found [here](http://mementoweb.org/depot/native/ia/).
 
 
 

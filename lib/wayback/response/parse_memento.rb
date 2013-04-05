@@ -51,7 +51,7 @@ module Wayback
       end
 
       def on_complete(env)
-        if respond_to?(:parse) && env[:response_headers]['content-type'].match(/^application\/link-format/i)
+        if respond_to?(:parse) && ((env[:response_headers] && env[:response_headers]['content-type']) || '').match(/^application\/link-format/i)
           env[:body] = parse(env[:body]) unless [204, 301, 302, 304].include?(env[:status])
         end
       end

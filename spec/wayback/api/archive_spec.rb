@@ -60,6 +60,12 @@ describe Wayback::API::Archive do
       expect(page).to be_a Wayback::Page
       expect(page.html).to match(/^\<\!DOCTYPE html\>.*http\:\/\/gleu\.ch.*\<\/html\>/im)
     end
+    # it "handles when error exists" do
+    #   stub_get("/memento/#{Time.now.to_i}/gleu.ch").to_return(:status => 204, :body => '', :headers => {:content_type => "text/xml"})
+    #   page = @client.page('gleu.ch', Time.now.to_s)
+    #   expect(page).to be_a Wayback::Page
+    #   expect(page.html).to match(/^\<\!DOCTYPE html\>.*http\:\/\/gleu\.ch.*\<\/html\>/im)
+    # end
   end
 
 end

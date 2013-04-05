@@ -1,5 +1,3 @@
-require 'wayback/api/arguments'
-
 module Wayback
   module API
     module Utils
@@ -22,18 +20,6 @@ module Wayback
       def objects_from_array(klass, array)
         array.map do |element|
           klass.fetch_or_new(element)
-        end
-      end
-
-      # @param klass [Class]
-      # @param request_method [Symbol]
-      # @param path [String]
-      # @param args [Array]
-      # @return [Array]
-      def threaded_object_from_response(klass, request_method, path, args)
-        arguments = Wayback::API::Arguments.new(args)
-        arguments.flatten.threaded_map do |id|
-          object_from_response(klass, request_method, path, arguments.options.merge(:id => id))
         end
       end
 
