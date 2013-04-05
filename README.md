@@ -13,7 +13,7 @@ So you want to get up and tweeting as fast as possible?
 
 
 ## Documentation
-COMING SOON! -- [documentation](http://rdoc.info/gems/wayback)
+You can browse the Rdoc [here](http://rdoc.info/gems/wayback).
 
 
 ## Configuration
