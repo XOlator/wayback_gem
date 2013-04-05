@@ -10,7 +10,7 @@ module Wayback
       # Return a list of archived pages
       #
       # @return [Wayback::Archive]
-      # @param url [String] The page that of which was archived.
+      # @param url [String] The page URI that of which was archived.
       # @param options [Hash] A customizable set of options.
       # @example Return the list of available archives for a web page.
       #   Wayback.list('http://gleu.ch')
@@ -22,7 +22,8 @@ module Wayback
       #
       # @raise [Wayback::Error::Unauthorized] Error raised when supplied user credentials are not valid.
       # @return [Wayback::Page]
-      # @param url [String] The page that of which was archived.
+      # @param url [String] The page URI that of which was archived.
+      # @param date [String, Symbol, Time, Fixnum, Integer] A date or symbol to describe which dated archive page. Symbols include :first and :last. Strings are converted to integer timestamps.
       # @param options [Hash] A customizable set of options.
       # @example Return the HTML archive for the page.
       #   Wayback.page('http://gleu.ch')

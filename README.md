@@ -9,18 +9,23 @@ A Ruby interface to Archive.org's Wayback Machine Memento API.
     gem install wayback
 
 ## Quick Start Guide
-So you want to get up and tweeting as fast as possible?
+Accessing the Wayback Machine is super-duper easy.
+
+```ruby
+require 'wayback'
+Wayback.page('http://www.xolator.com', :first)
+```
 
 
 ## Documentation
-You can browse the Rdoc [here](http://rdoc.info/gems/wayback).
+You can browse the Rdoc [here](http://rdoc.info/github/XOlator/wayback_gem/master/frames).
 
 
 ## Configuration
 
-There is no real configuration necessary for accessing Archive.org's Wayback Machine Memento API, however you can change endpoint and other basic connection options.
+There is no real configuration necessary for accessing the Wayback Machine Memento API, however you can change endpoint and other basic connection options.
 
-The current defaults for this gem are:
+The current defaults configurations for this gem are:
 
 ```ruby
 Wayback.configure do |c|
@@ -77,5 +82,3 @@ More information on Archive's Wayback Machine memento API can be found [here](ht
 ## Copyright
 Copyright (c) 2013 XOlator.
 See [LICENSE][] for details.
-
-[license]: LICENSE.md
