@@ -1,4 +1,5 @@
 require 'faraday'
+require 'time'
 
 module Wayback
   module Response

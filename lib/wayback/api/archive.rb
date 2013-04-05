@@ -1,3 +1,4 @@
+require 'time'
 require 'wayback/api/arguments'
 require 'wayback/api/utils'
 require 'wayback/error/not_found'

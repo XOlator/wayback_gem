@@ -1,4 +1,5 @@
 require 'faraday'
+require 'faraday_middleware'
 require 'wayback/configurable'
 require 'wayback/error/client_error'
 require 'wayback/error/server_error'
@@ -27,6 +28,8 @@ module Wayback
     MIDDLEWARE = Faraday::Builder.new do |builder|
       # Convert request params to "www-form-urlencoded"
       builder.use Faraday::Request::UrlEncoded
+      # Follow redirects
+      builder.use FaradayMiddleware::FollowRedirects
       # Handle 4xx server responses
       builder.use Wayback::Response::RaiseError, Wayback::Error::ClientError
       # Handle 5xx server responses

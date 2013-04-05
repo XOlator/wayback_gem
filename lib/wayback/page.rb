@@ -7,11 +7,11 @@ module Wayback
 
 
     def to_s
-      html
+      html || ''
     end
 
 
-    private
+  private
 
 
   end
