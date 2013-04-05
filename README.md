@@ -1,6 +1,6 @@
 # Wayback Gem - IN DEVELOPMENT
 
-!! Currently in development !!
+Currently at 93.34% coverage.
 
 [gem]: https://rubygems.org/gems/wayback
 
@@ -14,8 +14,7 @@ So you want to get up and tweeting as fast as possible?
 
 
 ## Documentation
-COMING SOON!
-[http://rdoc.info/gems/wayback][documentation]
+COMING SOON! -- [http://rdoc.info/gems/wayback][documentation]
 
 [documentation]: http://rdoc.info/gems/wayback
 
@@ -42,7 +41,7 @@ Wayback.page('http://www.xolator.com', :last)
 
 
 ## Additional Notes
-Based heavily on the [https://www.github.com/sferik/twitter][Twitter gem]. (Thanks dudes!)
+Based heavily on the [Twitter gem](https://www.github.com/sferik/twitter). (Thanks dudes!)
 More information on Archive's Wayback Machine memento API can be found at ____.
 
 
