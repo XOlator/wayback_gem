@@ -1,9 +1,7 @@
 # Wayback Gem
 
-[![Build Status](https://secure.travis-ci.org/xolator/wayback_gem.png?branch=master)][travis]
-[![Coverage Status](https://coveralls.io/repos/xolator/wayback_gem/badge.png?branch=master)][coveralls]
-
-[gem](https://rubygems.org/gems/wayback)
+![Build Status](https://secure.travis-ci.org/XOlator/wayback_gem.png?branch=master)
+![Coverage Status](https://coveralls.io/repos/XOlator/wayback_gem/badge.png?branch=master)
 
 A Ruby interface to Archive.org's Wayback Machine Memento API.
 
@@ -70,7 +68,7 @@ Wayback.page('http://www.xolator.com', :last)
 
 
 ## Additional Notes
-Based heavily on the [Twitter gem](https://www.github.com/sferik/twitter). (Thanks dudes!)
+Based heavily on the [Twitter gem](https://www.github.com/sferik/twitter). (Xie xie!)
 
 More information on Archive's Wayback Machine memento API can be found [here](http://mementoweb.org/depot/native/ia/).
 
