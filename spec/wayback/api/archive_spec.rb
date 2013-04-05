@@ -20,6 +20,8 @@ describe Wayback::API::Archive do
       timemap = @client.list('gleu.ch')
       expect(timemap).to be_a Wayback::Archive
       expect(timemap.id).to eq ('http://gleu.ch')
+      expect(timemap.first_date).to eq (1303064571)
+      expect(timemap.first_date?).to be_true
     end
   end
 

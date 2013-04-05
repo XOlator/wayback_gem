@@ -3,7 +3,7 @@ require 'wayback/identity'
 module Wayback
   class Page < Wayback::Identity
 
-    attr_reader :html, :error
+    attr_reader :html
 
 
     def to_s

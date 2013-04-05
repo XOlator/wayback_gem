@@ -9,3 +9,4 @@ doc/*
 Gemfile.lock
 log/*
 pkg/*
+.coveralls.yml

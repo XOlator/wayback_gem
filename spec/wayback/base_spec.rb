@@ -108,4 +108,10 @@ describe Wayback::Base do
     end
   end
 
+  describe '#attrs' do
+    it 'returns a hash of attributes' do
+      expect(Wayback::Base.new(:id => 1).attrs).to eq({:id => 1})
+    end
+  end
+
 end

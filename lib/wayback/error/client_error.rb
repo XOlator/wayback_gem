@@ -18,8 +18,8 @@ module Wayback
       def self.parse_error(body)
         if body.nil? || body.is_a?(String)
           ''
-        elsif body[:error]
-          body[:error]
+        # elsif body[:error]
+        #   body[:error]
         end
       end
 

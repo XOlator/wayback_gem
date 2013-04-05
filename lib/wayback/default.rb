@@ -12,17 +12,9 @@ module Wayback
   module Default
     ENDPOINT = 'http://api.wayback.archive.org' unless defined? Wayback::Default::ENDPOINT
     CONNECTION_OPTIONS = {
-      :headers => {
-        # :accept => 'application/json',
-        :user_agent => "Wayback Ruby Gem #{Wayback::Version}",
-      },
-      :request => {
-        :open_timeout => 5,
-        :timeout => 10,
-      },
-      :ssl => {
-        :verify => false
-      },
+      :headers  => {:user_agent => "Wayback Ruby Gem #{Wayback::Version}"},
+      :request  => {:open_timeout => 5, :timeout => 10},
+      :ssl      => {:verify => false},
     } unless defined? Wayback::Default::CONNECTION_OPTIONS
     IDENTITY_MAP = false unless defined? Wayback::Default::IDENTITY_MAP
     MIDDLEWARE = Faraday::Builder.new do |builder|
@@ -34,10 +26,10 @@ module Wayback
       builder.use Wayback::Response::RaiseError, Wayback::Error::ClientError
       # Handle 5xx server responses
       builder.use Wayback::Response::RaiseError, Wayback::Error::ServerError
+      # Parse memento page
+      builder.use Wayback::Response::ParseMementoPage
       # Parse link-format with custom memento parser
       builder.use Wayback::Response::ParseMemento
-      # Parse link-format with custom memento parser
-      builder.use Wayback::Response::ParseMementoPage
       # Set Faraday's HTTP adapter
       builder.adapter Faraday.default_adapter
     end unless defined? Wayback::Default::MIDDLEWARE

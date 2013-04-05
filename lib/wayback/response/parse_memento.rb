@@ -46,7 +46,7 @@ module Wayback
 
             info
           else
-            body
+            nil
         end
       end
 

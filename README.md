@@ -1,6 +1,7 @@
-# Wayback Gem - IN DEVELOPMENT
+# Wayback Gem
 
-Currently at 93.34% coverage.
+[![Build Status](https://secure.travis-ci.org/xolator/wayback_gem.png?branch=master)][travis]
+[![Coverage Status](https://coveralls.io/repos/xolator/wayback_gem/badge.png?branch=master)][coveralls]
 
 [gem](https://rubygems.org/gems/wayback)
 
@@ -18,7 +19,38 @@ COMING SOON! -- [documentation](http://rdoc.info/gems/wayback)
 
 
 ## Configuration
-COMING SOON
+
+There is no real configuration necessary for accessing Archive.org's Wayback Machine Memento API, however you can change endpoint and other basic connection options.
+
+The current defaults for this gem are:
+
+```ruby
+Wayback.configure do |c|
+  c.endpoint = 'http://api.wayback.archive.org'
+  c.connection_options = {
+    :headers  => {:user_agent => "Wayback Ruby Gem #{Wayback::Version}"},
+    :request  => {:open_timeout => 5, :timeout => 10},
+    :ssl      => {:verify => false},
+  }
+  c.identiy_map = false
+  c.middleware = Faraday::Builder.new do |builder|
+    # Convert request params to "www-form-urlencoded"
+    builder.use Faraday::Request::UrlEncoded
+    # Follow redirects
+    builder.use FaradayMiddleware::FollowRedirects
+    # Handle 4xx server responses
+    builder.use Wayback::Response::RaiseError, Wayback::Error::ClientError
+    # Handle 5xx server responses
+    builder.use Wayback::Response::RaiseError, Wayback::Error::ServerError
+    # Parse memento page
+    builder.use Wayback::Response::ParseMementoPage
+    # Parse link-format with custom memento parser
+    builder.use Wayback::Response::ParseMemento
+    # Set Faraday's HTTP adapter
+    builder.adapter Faraday.default_adapter
+  end
+```
+
 
 ## Usage Examples
 
