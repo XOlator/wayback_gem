@@ -4,7 +4,7 @@ require 'wayback/error/configuration_error'
 module Wayback
   module Configurable
     extend Forwardable
-    attr_accessor :endpoint, :connection_options, :identity_map, :middleware
+    attr_accessor :endpoint, :endpoint_path, :connection_options, :identity_map, :middleware
     def_delegator :options, :hash
 
     class << self
@@ -12,6 +12,7 @@ module Wayback
       def keys
         @keys ||= [
           :endpoint,
+          :endpoint_path,
           :connection_options,
           :identity_map,
           :middleware

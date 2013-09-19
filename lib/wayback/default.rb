@@ -10,7 +10,8 @@ require 'wayback/version'
 
 module Wayback
   module Default
-    ENDPOINT = 'http://api.wayback.archive.org' unless defined? Wayback::Default::ENDPOINT
+    ENDPOINT = 'http://web.archive.org' unless defined? Wayback::Default::ENDPOINT
+    ENDPOINT_PATH = '/web' unless defined? Wayback::Default::ENDPOINT_PATH
     CONNECTION_OPTIONS = {
       :headers  => {:user_agent => "Wayback Ruby Gem #{Wayback::Version}"},
       :request  => {:open_timeout => 5, :timeout => 10},
@@ -45,6 +46,10 @@ module Wayback
       # @return [String]
       def endpoint
         ENDPOINT
+      end
+
+      def endpoint_path
+        ENDPOINT_PATH
       end
 
       def connection_options

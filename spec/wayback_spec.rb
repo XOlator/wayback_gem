@@ -10,12 +10,12 @@ describe Wayback do
 
   context "when delegating to a client" do
     before do
-      stub_get("/list/timemap/link/gleu.ch").to_return(:body => fixture("list.timemap"), :headers => {:content_type => "application/link-format"})
+      stub_get("/timemap/link/gleu.ch").to_return(:body => fixture("list.timemap"), :headers => {:content_type => "application/link-format"})
     end
   
     it "requests the correct resource" do
       Wayback.list('gleu.ch')
-      expect(a_get("/list/timemap/link/gleu.ch")).to have_been_made
+      expect(a_get("/timemap/link/gleu.ch")).to have_been_made
     end
   
     it "returns the same results as a client" do

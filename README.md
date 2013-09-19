@@ -37,7 +37,8 @@ The current defaults configurations for this gem are:
 
 ```ruby
 Wayback.configure do |c|
-  c.endpoint = 'http://api.wayback.archive.org'
+  c.endpoint = 'http://web.archive.org'
+  c.endpoint_path = '/web'
   c.connection_options = {
     :headers  => {:user_agent => "Wayback Ruby Gem #{Wayback::Version}"},
     :request  => {:open_timeout => 5, :timeout => 10},

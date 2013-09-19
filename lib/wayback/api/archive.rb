@@ -15,7 +15,7 @@ module Wayback
       # @example Return the list of available archives for a web page.
       #   Wayback.list('http://gleu.ch')
       def list(url, options={})
-        object_from_response(Wayback::Archive, :get, "/list/timemap/link/#{url}", options)
+        object_from_response(Wayback::Archive, :get, "/timemap/link/#{url}", options)
       end
 
       # Returns the HTML contents of an archive page, fetched by date
@@ -35,7 +35,7 @@ module Wayback
         date = 0 if date == :first
         date = Time.now if date == :last
         date = Time.parse(date).to_i unless [Fixnum,Time,Integer].include?(date.class)
-        object_from_response(Wayback::Page, :get, "/memento/#{date.to_i}/#{url}", options)
+        object_from_response(Wayback::Page, :get, "/#{date.to_i}/#{url}", options)
       end
 
     end

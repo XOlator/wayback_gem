@@ -1,7 +1,7 @@
 module Wayback
   class Version
     MAJOR = 0 unless defined? Wayback::Version::MAJOR
-    MINOR = 1 unless defined? Wayback::Version::MINOR
+    MINOR = 2 unless defined? Wayback::Version::MINOR
     PATCH = 0 unless defined? Wayback::Version::PATCH
     PRE = nil unless defined? Wayback::Version::PRE
 

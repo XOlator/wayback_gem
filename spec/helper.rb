@@ -25,35 +25,35 @@ RSpec.configure do |config|
 end
 
 def a_delete(path)
-  a_request(:delete, Wayback::Default::ENDPOINT + path)
+  a_request(:delete, Wayback::Default::ENDPOINT + Wayback::Default::ENDPOINT_PATH + path)
 end
 
 def a_get(path)
-  a_request(:get, Wayback::Default::ENDPOINT + path)
+  a_request(:get, Wayback::Default::ENDPOINT + Wayback::Default::ENDPOINT_PATH + path)
 end
 
 def a_post(path)
-  a_request(:post, Wayback::Default::ENDPOINT + path)
+  a_request(:post, Wayback::Default::ENDPOINT + Wayback::Default::ENDPOINT_PATH + path)
 end
 
 def a_put(path)
-  a_request(:put, Wayback::Default::ENDPOINT + path)
+  a_request(:put, Wayback::Default::ENDPOINT + Wayback::Default::ENDPOINT_PATH + path)
 end
 
 def stub_delete(path)
-  stub_request(:delete, Wayback::Default::ENDPOINT + path)
+  stub_request(:delete, Wayback::Default::ENDPOINT + Wayback::Default::ENDPOINT_PATH + path)
 end
 
 def stub_get(path)
-  stub_request(:get, Wayback::Default::ENDPOINT + path)
+  stub_request(:get, Wayback::Default::ENDPOINT + Wayback::Default::ENDPOINT_PATH + path)
 end
 
 def stub_post(path)
-  stub_request(:post, Wayback::Default::ENDPOINT + path)
+  stub_request(:post, Wayback::Default::ENDPOINT + Wayback::Default::ENDPOINT_PATH + path)
 end
 
 def stub_put(path)
-  stub_request(:put, Wayback::Default::ENDPOINT + path)
+  stub_request(:put, Wayback::Default::ENDPOINT + Wayback::Default::ENDPOINT_PATH + path)
 end
 
 def fixture_path

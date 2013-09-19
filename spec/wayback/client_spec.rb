@@ -33,6 +33,7 @@ describe Wayback::Client do
         @configuration = {
           :connection_options => {:timeout => 10},
           :endpoint => 'http://xolator.com/',
+          :endpoint_path => '',
           :middleware => Proc.new{},
           :identity_map => ::Hash
         }

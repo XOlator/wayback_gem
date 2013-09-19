@@ -46,7 +46,7 @@ module Wayback
   private
 
     def request(method, path, params={}, signature_params=params)
-      connection.send(method.to_sym, path, params).env
+      connection.send(method.to_sym, path.insert(0, @endpoint_path), params).env
     rescue Faraday::Error::ClientError
       raise Wayback::Error::ClientError
     end
