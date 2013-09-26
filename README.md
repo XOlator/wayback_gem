@@ -75,7 +75,7 @@ Wayback.list('http://www.xolator.com')
 **Fetch a specific archived page**
 
 ```ruby
-Wayback.page('http://www.xolator.com', 1363488758)
+Wayback.page('http://www.xolator.com', 20130613055153)
 Wayback.page('http://www.xolator.com', :first)
 Wayback.page('http://www.xolator.com', :last)
 ```
