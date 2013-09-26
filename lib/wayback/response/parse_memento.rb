@@ -19,7 +19,7 @@ module Wayback
                 k, v = a.gsub(/^([A-Z0-9\-]+)(=.*)$/i, '\1'), a.gsub(/^([A-Z0-9\-]+)(=(\'|\"))(.*)(\'|\")(,)?$/i, '\4')
                 case k
                   when 'datetime'
-                    datetime, date = v, Time.parse(v).to_i
+                    datetime, date = v, Time.parse(v).utc.strftime('%Y%m%d%H%M%S').to_i
                   when 'rel'
                     rels = v.split(' ')
                   when 'from'

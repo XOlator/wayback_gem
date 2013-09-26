@@ -23,7 +23,7 @@ module Wayback
       # @raise [Wayback::Error::Unauthorized] Error raised when supplied user credentials are not valid.
       # @return [Wayback::Page]
       # @param url [String] The page URI that of which was archived.
-      # @param date [String, Symbol, Time, Fixnum, Integer] A date or symbol to describe which dated archive page. Symbols include :first and :last. Strings are converted to integer timestamps.
+      # @param date [String, Symbol, Date, DateTime, Time, Fixnum, Integer, Float] A date or symbol to describe which dated archive page. Symbols include :first and :last. Strings are converted to integer timestamps.
       # @param options [Hash] A customizable set of options.
       # @example Return the HTML archive for the page.
       #   Wayback.page('http://gleu.ch')
@@ -32,10 +32,27 @@ module Wayback
       #   Wayback.page('http://gleu.ch', :first)
       #   Wayback.page('http://gleu.ch', :last)
       def page(url, date=0, options={})
-        date = 0 if date == :first
-        date = Time.now if date == :last
-        date = Time.parse(date).to_i unless [Fixnum,Time,Integer].include?(date.class)
-        object_from_response(Wayback::Page, :get, "/#{date.to_i}/#{url}", options)
+        archive_date = case date.class.to_s
+          when 'Time'
+            date
+          when 'Date', 'DateTime'
+            date.to_time
+          when 'Symbol'
+            (date == :first ? 0 : Time.now)
+          when 'String'
+            Time.parse(date).strftime('%Y%m%d%H%M%S')
+          when 'Fixnum', 'Integer', 'Float'
+            # Epoch vs date string as number
+            (date.to_i <= Time.now.to_i ? Time.at(date.to_i) : Time.parse(date.to_i.to_s))
+          else
+            raise Wayback::Error::ClientError
+        end
+
+        # Format accordingly
+        archive_date = archive_date.strftime('%Y%m%d%H%M%S') if archive_date.class == Time
+
+        # Get it
+        object_from_response(Wayback::Page, :get, "/#{archive_date}/#{url}", options)
       end
 
     end
