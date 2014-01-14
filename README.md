@@ -39,6 +39,8 @@ The current defaults configurations for this gem are:
 Wayback.configure do |c|
   c.endpoint = 'http://web.archive.org'
   c.endpoint_path = '/web'
+  c.json_endpoint = 'http://archive.org'
+  c.json_endpoint_path = '/wayback'
   c.connection_options = {
     :headers  => {:user_agent => "Wayback Ruby Gem #{Wayback::Version}"},
     :request  => {:open_timeout => 5, :timeout => 10},
@@ -54,6 +56,8 @@ Wayback.configure do |c|
     builder.use Wayback::Response::RaiseError, Wayback::Error::ClientError
     # Handle 5xx server responses
     builder.use Wayback::Response::RaiseError, Wayback::Error::ServerError
+    # Parse closest available JSON result
+    builder.use Wayback::Response::ParseAvailablity
     # Parse memento page
     builder.use Wayback::Response::ParseMementoPage
     # Parse link-format with custom memento parser

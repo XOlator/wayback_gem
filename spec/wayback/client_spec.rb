@@ -34,6 +34,8 @@ describe Wayback::Client do
           :connection_options => {:timeout => 10},
           :endpoint => 'http://xolator.com/',
           :endpoint_path => '',
+          :json_endpoint => 'http://api.xolator.com/',
+          :json_endpoint_path => '',
           :middleware => Proc.new{},
           :identity_map => ::Hash
         }
@@ -107,8 +109,25 @@ describe Wayback::Client do
 
   describe "#request" do
     it "catches Faraday errors" do
-      subject.stub!(:connection).and_raise(Faraday::Error::ClientError.new("Oops"))
+      subject.stub(:connection).and_raise(Faraday::Error::ClientError.new("Oops"))
       expect{subject.send(:request, :get, "/path")}.to raise_error Wayback::Error::ClientError
+    end
+  end
+
+  describe "#json connection" do
+    it "looks like Faraday connection" do
+      expect(subject.send(:json_connection)).to respond_to(:run_request)
+    end
+    it "memoizes the connection" do
+      c1, c2 = subject.send(:json_connection), subject.send(:json_connection)
+      expect(c1.object_id).to eq c2.object_id
+    end
+  end
+
+  describe "#json_request" do
+    it "catches Faraday errors" do
+      subject.stub(:json_connection).and_raise(Faraday::Error::ClientError.new("Oops"))
+      expect{subject.send(:json_request, :get, "/path")}.to raise_error Wayback::Error::ClientError
     end
   end
 

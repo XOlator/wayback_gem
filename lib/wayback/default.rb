@@ -13,6 +13,8 @@ module Wayback
   module Default
     ENDPOINT = 'http://web.archive.org' unless defined? Wayback::Default::ENDPOINT
     ENDPOINT_PATH = '/web' unless defined? Wayback::Default::ENDPOINT_PATH
+    JSON_ENDPOINT = 'http://archive.org' unless defined? Wayback::Default::JSON_ENDPOINT
+    JSON_ENDPOINT_PATH = '/wayback' unless defined? Wayback::Default::JSON_ENDPOINT_PATH
     CONNECTION_OPTIONS = {
       :headers  => {:user_agent => "Wayback Ruby Gem #{Wayback::Version}"},
       :request  => {:open_timeout => 5, :timeout => 10},
@@ -28,7 +30,7 @@ module Wayback
       builder.use Wayback::Response::RaiseError, Wayback::Error::ClientError
       # Handle 5xx server responses
       builder.use Wayback::Response::RaiseError, Wayback::Error::ServerError
-      # # Parse closest available JSON result
+      # Parse closest available JSON result
       builder.use Wayback::Response::ParseAvailablity
       # Parse memento page
       builder.use Wayback::Response::ParseMementoPage
@@ -53,6 +55,14 @@ module Wayback
 
       def endpoint_path
         ENDPOINT_PATH
+      end
+
+      def json_endpoint
+        JSON_ENDPOINT
+      end
+
+      def json_endpoint_path
+        JSON_ENDPOINT_PATH
       end
 
       def connection_options

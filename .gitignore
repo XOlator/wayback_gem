@@ -10,3 +10,5 @@ Gemfile.lock
 log/*
 pkg/*
 .coveralls.yml
+.DS_Store
+._*

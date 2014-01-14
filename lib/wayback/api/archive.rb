@@ -48,7 +48,8 @@ module Wayback
 
         options[:url] = url
         options[:timestamp] = archive_date
-        object_from_response(Wayback::Availability, :get, "/available", options)
+
+        object_from_response(Wayback::Availability, :json_get, "/available", options)
       end
 
       # Returns the HTML contents of an archive page, fetched by date

@@ -42,6 +42,10 @@ module Wayback
       request(:put, path, params)
     end
 
+    # Perform an HTTP GET request from JSON API
+    def json_get(path, params={})
+      json_request(:get, path, params)
+    end
 
   private
 
@@ -56,6 +60,19 @@ module Wayback
     # @return [Faraday::Connection]
     def connection
       @connection ||= Faraday.new(@endpoint, @connection_options.merge(:builder => @middleware))
+    end
+
+    def json_request(method, path, params={}, signature_params=params)
+      json_connection.send(method.to_sym, path.insert(0, @json_endpoint_path), params).env
+    rescue Faraday::Error::ClientError
+      raise Wayback::Error::ClientError
+    end
+
+    # Returns a Faraday::Connection object
+    #
+    # @return [Faraday::Connection]
+    def json_connection
+      @json_connection ||= Faraday.new(@json_endpoint, @connection_options.merge(:builder => @middleware))
     end
 
   end

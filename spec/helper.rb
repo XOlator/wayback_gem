@@ -40,6 +40,10 @@ def a_put(path)
   a_request(:put, Wayback::Default::ENDPOINT + Wayback::Default::ENDPOINT_PATH + path)
 end
 
+def a_json_get(path)
+  a_request(:get, Wayback::Default::JSON_ENDPOINT + Wayback::Default::JSON_ENDPOINT_PATH + path)
+end
+
 def stub_delete(path)
   stub_request(:delete, Wayback::Default::ENDPOINT + Wayback::Default::ENDPOINT_PATH + path)
 end
@@ -54,6 +58,10 @@ end
 
 def stub_put(path)
   stub_request(:put, Wayback::Default::ENDPOINT + Wayback::Default::ENDPOINT_PATH + path)
+end
+
+def stub_json_get(path)
+  stub_request(:get, Wayback::Default::JSON_ENDPOINT + Wayback::Default::JSON_ENDPOINT_PATH + path)
 end
 
 def fixture_path
