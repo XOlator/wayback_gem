@@ -1,4 +1,5 @@
 require 'wayback/archive'
+require 'wayback/availability'
 require 'wayback/client'
 require 'wayback/configurable'
 require 'wayback/default'

@@ -4,6 +4,7 @@ require 'wayback/configurable'
 require 'wayback/error/client_error'
 require 'wayback/error/server_error'
 require 'wayback/response/raise_error'
+require 'wayback/response/parse_availability'
 require 'wayback/response/parse_memento'
 require 'wayback/response/parse_memento_page'
 require 'wayback/version'
@@ -27,6 +28,8 @@ module Wayback
       builder.use Wayback::Response::RaiseError, Wayback::Error::ClientError
       # Handle 5xx server responses
       builder.use Wayback::Response::RaiseError, Wayback::Error::ServerError
+      # # Parse closest available JSON result
+      builder.use Wayback::Response::ParseAvailablity
       # Parse memento page
       builder.use Wayback::Response::ParseMementoPage
       # Parse link-format with custom memento parser
