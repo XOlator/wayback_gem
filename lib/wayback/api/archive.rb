@@ -33,7 +33,7 @@ module Wayback
           when 'Date', 'DateTime'
             date.to_time
           when 'Symbol'
-            (date == :first ? 0 : Time.now)
+            (date == :first ? 19690101000000 : Time.now)
           when 'String'
             Time.parse(date).strftime('%Y%m%d%H%M%S')
           when 'Fixnum', 'Integer', 'Float'

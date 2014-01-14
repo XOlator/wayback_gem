@@ -76,6 +76,14 @@ Wayback.configure do |c|
 Wayback.list('http://www.xolator.com')
 ```
 
+**Fetch closest known page to a specified date**
+
+```ruby
+Wayback.available('http://www.xolator.com', 20130613055153)
+Wayback.available('http://www.xolator.com', :first)
+Wayback.available('http://www.xolator.com', :last)
+```
+
 **Fetch a specific archived page**
 
 ```ruby
