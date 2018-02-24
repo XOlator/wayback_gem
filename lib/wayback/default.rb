@@ -21,7 +21,7 @@ module Wayback
       :ssl      => {:verify => false},
     } unless defined? Wayback::Default::CONNECTION_OPTIONS
     IDENTITY_MAP = false unless defined? Wayback::Default::IDENTITY_MAP
-    MIDDLEWARE = Faraday::Builder.new do |builder|
+    MIDDLEWARE = Faraday::RackBuilder.new do |builder|
       # Convert request params to "www-form-urlencoded"
       builder.use Faraday::Request::UrlEncoded
       # Follow redirects
